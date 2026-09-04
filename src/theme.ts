@@ -2,6 +2,7 @@
 "use client";
 
 import { createTheme } from "@mui/material/styles";
+import vazirFont from "@/constants/localFont";
 
 declare module "@mui/material/styles" {
   interface PaletteColor {
@@ -38,7 +39,7 @@ export const getAppTheme = (mode: "light" | "dark" = "light") => {
   return createTheme({
     direction: "rtl",
     typography: {
-      fontFamily: "inherit",
+      fontFamily: vazirFont.style.fontFamily,
     },
     palette: {
       mode,
@@ -110,5 +111,5 @@ export const getAppTheme = (mode: "light" | "dark" = "light") => {
   });
 };
 
-const theme = getAppTheme("light");
+const theme = getAppTheme("dark");
 export default theme;

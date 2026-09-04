@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import ThemeRegistry from "../components/ThemeRegistry";
+import vazirFont from "@/constants/localFont";
 
 export const metadata: Metadata = {
   title: "Next.js + MUI App",
@@ -14,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
-      <body>
+      <body className={`${vazirFont.variable} font-sans`}>
         <ThemeRegistry>{children}</ThemeRegistry>
       </body>
     </html>
