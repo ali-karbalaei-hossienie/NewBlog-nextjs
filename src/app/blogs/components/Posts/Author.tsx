@@ -36,7 +36,7 @@ const Author = ({ post }: { post: BlogPost }) => {
           <Typography
             sx={{
               fontSize: 12,
-              color: "secondary.800",
+              color: "secondary.500",
               whiteSpace: "nowrap",
             }}
           >
