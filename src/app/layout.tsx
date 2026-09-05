@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import ThemeRegistry from "../components/ThemeRegistry";
 import vazirFont from "@/constants/localFont";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: {
@@ -20,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={`${vazirFont.variable} font-sans`}>
-        <ThemeRegistry>{children}</ThemeRegistry>
+        <ThemeRegistry>
+          <Header />
+          {children}
+        </ThemeRegistry>
       </body>
     </html>
   );
