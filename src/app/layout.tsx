@@ -4,8 +4,12 @@ import ThemeRegistry from "../components/ThemeRegistry";
 import vazirFont from "@/constants/localFont";
 
 export const metadata: Metadata = {
-  title: "Next.js + MUI App",
-  description: "Application with custom MUI Theme",
+  title: {
+    template: "%s | اپلیکشین بلاگ ها",
+    default: "اپلیکشین بلاگ ها",
+  },
+  description: "اپلیکیشن مدیریت بلاگ",
+  keywords: ["اپلیکیشن بلاگ", "مدیریت بلاگ", "بلاگ"],
 };
 
 export default function RootLayout({

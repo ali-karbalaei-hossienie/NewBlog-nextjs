@@ -1,3 +1,5 @@
+"use client";
+
 import { AppBar, Container, Stack, Toolbar, Typography } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
