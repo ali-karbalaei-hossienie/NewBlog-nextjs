@@ -42,7 +42,7 @@ export default function NotFound() {
               transform: "translate(0, 0)",
             },
             "50%": {
-              transform: "translate(100px, 80px)",
+              transform: "translate(800px, 80px)",
             },
           },
         }}
