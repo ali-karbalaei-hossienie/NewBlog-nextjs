@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import { Metadata } from "next";
 
@@ -7,14 +6,7 @@ export const metadata: Metadata = {
 };
 export default function HomePage() {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
-      }}
-    >
-      <Header />
+    <>
       <Container
         component="main"
         maxWidth="lg"
@@ -83,6 +75,6 @@ export default function HomePage() {
           </Button>
         </Stack>
       </Container>
-    </Box>
+    </>
   );
 }
