@@ -20,17 +20,20 @@ export default function HomePage() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
           flexGrow: 1,
           textAlign: "center",
-          py: 4,
+          mt: 8,
         }}
       >
         <Typography
           variant="h3"
           component="h1"
-          color="text.primary"
-          sx={{ mb: 4, letterSpacing: "-0.5px", fontWeight: 700 }}
+          sx={{
+            mb: 4,
+            letterSpacing: "-0.5px",
+            fontWeight: 700,
+            color: "primary.contrastText",
+          }}
         >
           اپلیکیشن مدیریت بلاگ
         </Typography>
@@ -38,15 +41,13 @@ export default function HomePage() {
         <Box sx={{ mb: 5 }}>
           <Typography
             variant="body1"
-            color="text.secondary"
-            sx={{ fontSize: "1.1rem", mb: 1 }}
+            sx={{ fontSize: "1.1rem", mb: 1, color: "secondary.500" }}
           >
             جایی که قراره بتونی یه اپلیکیشن بلاگ کامل رو مدیریت کنی!
           </Typography>
           <Typography
             variant="body1"
-            color="text.secondary"
-            sx={{ fontSize: "1.1rem" }}
+            sx={{ fontSize: "1.1rem", color: "secondary.500" }}
           >
             بتونی بلاگ بسازی - کامنت بگذاری و در پنلت همه اتفاقات رو رصد کنی!
           </Typography>
@@ -54,8 +55,19 @@ export default function HomePage() {
 
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
           <Button
+            variant="outlined"
+            sx={{
+              borderRadius: "8px",
+              px: 4,
+              py: 1.2,
+              fontSize: "1rem",
+              color: "secondary.500",
+            }}
+          >
+            مطالعه بلاگ ها
+          </Button>
+          <Button
             variant="contained"
-            color="primary"
             sx={{
               borderRadius: "8px",
               px: 4,
@@ -66,19 +78,6 @@ export default function HomePage() {
             }}
           >
             مدیریت بلاگ ها
-          </Button>
-
-          <Button
-            variant="outlined"
-            color="secondary"
-            sx={{
-              borderRadius: "8px",
-              px: 4,
-              py: 1.2,
-              fontSize: "1rem",
-            }}
-          >
-            مطالعه بلاگ ها
           </Button>
         </Stack>
       </Container>
