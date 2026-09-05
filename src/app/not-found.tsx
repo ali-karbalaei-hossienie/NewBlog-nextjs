@@ -4,10 +4,10 @@ import { Box, Button, Stack, Typography, alpha, useTheme } from "@mui/material";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ErrorOutlineRoundedIcon from "@mui/icons-material/ErrorOutlineRounded";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
 export default function NotFound() {
   const theme = useTheme();
-
+  const router = useRouter();
   return (
     <Box
       sx={{
@@ -237,10 +237,9 @@ export default function NotFound() {
           </Button>
 
           <Button
-            component={Link}
-            href="/blogs"
             variant="outlined"
             size="large"
+            onClick={() => router.back()}
             sx={{
               borderRadius: 2.5,
               px: 4,
@@ -255,7 +254,7 @@ export default function NotFound() {
               },
             }}
           >
-            مشاهده بلاگ‌ها
+            برگشت
           </Button>
         </Stack>
       </Box>
