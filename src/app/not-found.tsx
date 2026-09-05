@@ -70,7 +70,7 @@ export default function NotFound() {
               transform: "translate(0, 0)",
             },
             "50%": {
-              transform: "translate(-80px, -70px)",
+              transform: "translate(-800px, -70px)",
             },
           },
         }}
