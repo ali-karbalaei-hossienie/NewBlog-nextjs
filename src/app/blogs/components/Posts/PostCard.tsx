@@ -1,25 +1,11 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
-import {
-  AccessTimeRounded,
-  BookmarkBorderRounded,
-  ChatBubbleOutlineRounded,
-  FavoriteBorderRounded,
-} from "@mui/icons-material";
-
-import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  Grid,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
 
 import type { BlogPost } from "@/app/types";
+import Author from "./Author";
+import PostAction from "./PostAction";
 
 interface BlogCardProps {
   post: BlogPost;
@@ -113,159 +99,10 @@ export default function PostCard({ post }: BlogCardProps) {
           </Link>
 
           {/* Author + Reading time */}
-          <Stack
-            direction="row"
-            sx={{
-              mb: 1.5,
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
-            {/* Author */}
-            <Stack
-              direction="row"
-              sx={{
-                alignItems: "center",
-                gap: 1,
-              }}
-            >
-              <Avatar
-                src={post.author.avatarUrl}
-                alt={post.author.name}
-                sx={{
-                  width: 28,
-                  height: 28,
-                  border: 1,
-                  borderColor: "secondary.300",
-                }}
-              />
-
-              <Typography
-                sx={{
-                  fontSize: 12,
-                  color: "secondary.800",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {post.author.name}
-              </Typography>
-            </Stack>
-
-            {/* Reading time */}
-            <Stack
-              direction="row"
-              sx={{
-                alignItems: "center",
-                color: "secondary.400",
-                gap: 0.5,
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: 10,
-                }}
-              >
-                خواندن: {post.readingTime} دقیقه
-              </Typography>
-
-              <AccessTimeRounded
-                sx={{
-                  fontSize: 16,
-                }}
-              />
-            </Stack>
-          </Stack>
+          <Author post={post} />
 
           {/* Actions */}
-          <Stack
-            direction="row"
-            sx={{
-              gap: 2,
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
-            {/* Comments */}
-            <Stack
-              direction="row"
-              sx={{
-                alignItems: "center",
-                bgcolor: "secondary.200",
-                borderRadius: 1,
-                height: 29,
-                color: "secondary.600",
-              }}
-            >
-              <IconButton
-                disableRipple
-                size="small"
-                sx={{
-                  width: 29,
-                  height: 29,
-                  color: "secondary.400",
-                }}
-              >
-                <ChatBubbleOutlineRounded fontSize="small" />
-              </IconButton>
-              <Typography
-                sx={{
-                  fontSize: 11,
-                  pr: 0.5,
-                }}
-              >
-                {post.commentsCount}
-              </Typography>
-            </Stack>
-            {/* Like */}
-            <Stack
-              direction="row"
-              sx={{
-                alignItems: "center",
-                bgcolor: "error.50",
-                borderRadius: 1,
-                height: 29,
-              }}
-            >
-              <IconButton
-                size="small"
-                sx={{
-                  width: 29,
-                  height: 29,
-                  color: "error.main",
-                }}
-              >
-                <FavoriteBorderRounded fontSize="small" />
-              </IconButton>
-
-              <Typography
-                sx={{
-                  color: "error.main",
-                  fontSize: 11,
-                  pr: 0.5,
-                }}
-              >
-                {post.likesCount}
-              </Typography>
-            </Stack>
-
-            {/* Bookmark */}
-            <IconButton
-              size="small"
-              sx={{
-                width: 29,
-                height: 29,
-                bgcolor: "primary.50",
-                color: "primary.900",
-                borderRadius: 1,
-
-                "&:hover": {
-                  bgcolor: "primary.100",
-                },
-              }}
-            >
-              <BookmarkBorderRounded fontSize="small" />
-            </IconButton>
-          </Stack>
+          <PostAction post={post} />
         </CardContent>
       </Card>
     </Grid>
