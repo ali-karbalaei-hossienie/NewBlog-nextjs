@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
-import { BlogPost } from "../types";
-import PostCard from "./components/Posts/PostCard";
+import { BlogPost } from "../../types";
+import PostCard from "../components/Posts/PostCard";
 
 const BlogPage = async () => {
   let posts: BlogPost[] = [];

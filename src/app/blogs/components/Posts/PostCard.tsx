@@ -27,7 +27,7 @@ export default function PostCard({ post }: BlogCardProps) {
       >
         {/* Cover */}
         <Link
-          href={`/blog/${post.slug}`}
+          href={`/blogs/${post.slug}`}
           style={{
             display: "block",
             textDecoration: "none",
@@ -71,7 +71,7 @@ export default function PostCard({ post }: BlogCardProps) {
         >
           {/* Title */}
           <Link
-            href={`/blog/${post.slug}`}
+            href={`/blogs/${post.slug}`}
             style={{
               textDecoration: "none",
               color: "inherit",
