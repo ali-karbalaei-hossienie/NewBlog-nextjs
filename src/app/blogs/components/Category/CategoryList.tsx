@@ -12,6 +12,7 @@ import HistoryEduRoundedIcon from "@mui/icons-material/HistoryEduRounded";
 import MapRoundedIcon from "@mui/icons-material/MapRounded";
 
 import CategoryLink from "./CategoryLink";
+import NewsletterSubscribe from "../NewsletterSubscribe/NewsletterSubscribe";
 
 const getCategoryIcon = (englishTitle: string) => {
   switch (englishTitle) {
@@ -275,6 +276,7 @@ const CategoryList = async () => {
           </ListItem>
         ))}
       </List>
+      <NewsletterSubscribe />
     </Box>
   );
 };
