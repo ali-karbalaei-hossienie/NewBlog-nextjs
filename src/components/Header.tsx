@@ -22,7 +22,7 @@ const Header = () => {
           borderColor: "divider",
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
             <Stack
               direction="row"
