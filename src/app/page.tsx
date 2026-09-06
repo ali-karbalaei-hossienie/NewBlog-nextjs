@@ -2,7 +2,7 @@ import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "خانه | اپلیکشین بلاگ ها",
+  title: "خانه |  بلاگینو ",
 };
 export default function HomePage() {
   return (

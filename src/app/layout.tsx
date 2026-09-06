@@ -6,8 +6,8 @@ import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | اپلیکشین بلاگ ها",
-    default: "اپلیکشین بلاگ ها",
+    template: "%s | بلاگینو",
+    default: "بلاگینو",
   },
   description: "اپلیکیشن مدیریت بلاگ",
   keywords: ["اپلیکیشن بلاگ", "مدیریت بلاگ", "بلاگ"],

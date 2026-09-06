@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -8,6 +9,68 @@ interface PostPageProps {
   params: Promise<{
     postSlug: string;
   }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PostPageProps): Promise<Metadata> {
+  const { postSlug } = await params;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/post/slug/${postSlug}`,
+    {
+      cache: "no-store",
+    },
+  );
+
+  if (!res.ok) {
+    return {
+      title: "پست پیدا نشد",
+      description: "پست مورد نظر پیدا نشد.",
+    };
+  }
+
+  const response: {
+    data: {
+      post: BlogPost;
+    };
+  } = await res.json();
+
+  const post = response.data.post;
+
+  if (!post) {
+    return {
+      title: "پست پیدا نشد",
+      description: "پست مورد نظر پیدا نشد.",
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.briefText,
+
+    openGraph: {
+      title: post.title,
+      description: post.briefText,
+      type: "article",
+      publishedTime: post.createdAt,
+      modifiedTime: post.updatedAt,
+      authors: [post.author.name],
+      images: [
+        {
+          url: post.coverImageUrl,
+          alt: post.title,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.briefText,
+      images: [post.coverImageUrl],
+    },
+  };
 }
 
 const PostPage = async ({ params }: PostPageProps) => {
@@ -39,12 +102,7 @@ const PostPage = async ({ params }: PostPageProps) => {
   return (
     <Box>
       <Container maxWidth="md" sx={{ py: 4 }}>
-        <Box
-          sx={{
-            width: "100%",
-          }}
-        >
-          {/* Title */}
+        <Box sx={{ width: "100%" }}>
           <Typography
             component="h1"
             sx={{
@@ -61,7 +119,6 @@ const PostPage = async ({ params }: PostPageProps) => {
             {post.title}
           </Typography>
 
-          {/* Brief Text */}
           <Typography
             sx={{
               fontSize: 15,
@@ -73,7 +130,6 @@ const PostPage = async ({ params }: PostPageProps) => {
             {post.briefText}
           </Typography>
 
-          {/* Main Text */}
           <Typography
             sx={{
               fontSize: 15,
@@ -85,7 +141,6 @@ const PostPage = async ({ params }: PostPageProps) => {
             {post.text}
           </Typography>
 
-          {/* Cover Image */}
           <Box
             sx={{
               position: "relative",
